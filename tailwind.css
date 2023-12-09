@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+@layer components {
+  .nav_link {
+    @apply px-4 py-5 border border-gray-100 flex flex-col items-center rounded hover:border-gray-400 transition-colors dark:!border-gray-700 dark:hover:!border-gray-300;
+  }
+  .course_link {
+    @apply flex items-center h-10 rounded px-3 text-sm transition-colors bg-white text-prototurk font-medium hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white;
+  }
+  .course_link.active {
+    @apply bg-prototurk text-white dark:bg-red-400 dark:text-white;
+  }
+  .modal {
+    @apply fixed inset-0 bg-prototurk/40 flex items-center justify-center invisible opacity-0 transition-opacity;
+  }
+  .modal.active {
+    @apply visible opacity-100;
+  }
+  .modal_content {
+    @apply bg-white p-10 min-w-[600px] max-w-full rounded-md dark:bg-gray-800;
+  }
+  .sidebar {
+    @apply w-full lg:w-64 border-r transition-all scale-90 lg:scale-100 shrink-0 p-3 lg:opacity-100 opacity-0 lg:visible invisible lg:translate-x-0 border-gray-100 divide-y divide-gray-200 divide-solid flex flex-col overflow-auto dark:divide-gray-800 dark:bg-gray-800;
+  }
+  .sidebar.active {
+    @apply visible opacity-100 h-full bg-white dark:bg-gray-700 z-10 scale-100;
+  }
+}

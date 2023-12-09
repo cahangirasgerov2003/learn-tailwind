@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../dist/output.css" />
+    <title>Tailwind</title>
+  </head>
+  <body
+    class="bg-white w-full flex flex-col h-full dark:bg-gray-900 dark:text-white"
+  >
+    <div
+      class="h-15 bg-gray-100 w-full border-b border-gray-100 dark:border-gray-700 flex justify-between items-center flex-shrink-0 px-5 dark:bg-gray-900"
+    >
+      <!-- fixed top-0 left-0 -->
+
+      <div class="lg:hidden inline-block">
+        <button onclick="sideBar()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            fill="white"
+            class="fill-current dark:text-white text-prototurk inline-flex items-center"
+          >
+            <path
+              d="M15.5 5C13.567 5 12 6.567 12 8.5C12 10.433 13.567 12 15.5 12C17.433 12 19 10.433 19 8.5C19 6.567 17.433 5 15.5 5ZM10 8.5C10 5.46243 12.4624 3 15.5 3C18.5376 3 21 5.46243 21 8.5C21 9.6575 20.6424 10.7315 20.0317 11.6175L22.7071 14.2929L21.2929 15.7071L18.6175 13.0317C17.7315 13.6424 16.6575 14 15.5 14C12.4624 14 10 11.5376 10 8.5ZM3 4H8V6H3V4ZM3 11H8V13H3V11ZM21 18V20H3V18H21Z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <a
+        href="#"
+        class="lg:text-2xl text-lg font-medium text-prototurk dark:text-white"
+        >./prototurk
+        <span class="text-sm font-normal text-gray-400 ml-1">v2.5.2</span>
+      </a>
+      <form class="w-1/2 hidden lg:block">
+        <input
+          type="text"
+          placeholder="Makalelerde ara..."
+          class="w-full bg-gray-200 h-10 px-3 placeholdre-gray-500 rounded dark:bg-gray-700 dark:placeholder-gray-300"
+        />
+      </form>
+      <a
+        href="javascript:;"
+        onclick="modalToggle('modal_id')"
+        class="bg-prototurk text-white h-10 items-center px-[18px] rounded hidden"
+        >Kayıt ol
+        <!-- inline-flex -->
+      </a>
+
+      <div class="group relative">
+        <button type="button" class="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="fill-current dark:text-white text-prototurk"
+          >
+            <path d="M8 12L14 6V18L8 12Z"></path>
+          </svg>
+          <img src="./image/user.webp" alt="User" class="w-8 h-8 rounded" />
+          <span
+            class="text-prototurk dark:text-white lg:ml-2 font-medium text-sm lg:text-base lg:inline-block hidden"
+            >Kamran</span
+          >
+        </button>
+        <div
+          class="hidden group-focus-within:block mt-0 absolute top-1 right-full bg-gray-300 dark:bg-prototurk lg:w-40 w-32 rounded px-1 py-2 z-50 mr-1"
+        >
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Profil</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Profil düzenle</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Takipçiler</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Sorular</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Cevaplar</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="javascript:;"
+                onclick="modalToggle('modal_id')"
+                class="w-full h-8 flex items-center text-sm lg:text-base rounded dark:hover:bg-gray-300 hover:bg-gray-500 transition-colors px-2"
+                >Kayıt ol</a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="#"
+                class="text-red-500 w-full h-8 flex items-center rounded hover:text-white dark:hover:text-red-500 dark:hover:bg-gray-300 hover:bg-red-500 transition-colors px-2"
+                >Çıxış yap</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <main class="flex calc-h-full-15">
+      <!-- mt-16 -->
+      <aside class="sidebar">
+        <nav class="px-2 mb-3 space-y-1">
+          <a href="#" class="course_link active">Anasayfa</a>
+          <a href="#" class="course_link">Akış</a>
+          <a href="#" class="course_link">Keşfet</a>
+          <a href="#" class="course_link">Makaleler</a>
+          <a href="#" class="course_link">Soru & Cevap</a>
+          <a href="#" class="course_link justify-between"
+            >Ders İstekleri
+            <span
+              class="bg-red-700 px-3 text-white rounded inline-flex items-center"
+              >Yeni</span
+            >
+          </a>
+        </nav>
+
+        <nav class="px-2 pt-3 space-y-1">
+          <a href="#" class="course_link">HTML</a>
+          <a href="#" class="course_link">CSS</a>
+          <a href="#" class="course_link">Javascript</a>
+          <a href="#" class="course_link">React</a>
+          <a href="#" class="course_link">MySQL</a>
+          <a href="#" class="course_link">Laravel </a>
+          <a href="#" class="course_link">Python</a>
+          <a href="#" class="course_link">Git </a>
+        </nav>
+        <div class="pt-3 px-2 mt-auto">
+          <button
+            onclick="darkMode()"
+            type="button"
+            class="bg-gray-900 dark:bg-white dark:hover:opacity-40 hover:opacity-90 dark:text-gray-900 text-white h-10 rounded flex items-center justify-center w-full transition-colors cursor-pointe"
+          >
+            <!-- dark:hover:bg-gray-950
+          dark:hover:text-white 
+        hover:bg-white
+      -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+              fill="white"
+              class="text-base mr-2 dark:hidden block"
+            >
+              <path
+                d="M504-425Zm20 385H420l20-12.5q20-12.5 43.5-28t43.5-28l20-12.5q81-6 149.5-49T805-285q-86-8-163-43.5T504-425q-61-61-97-138t-43-163q-77 43-120.5 118.5T200-444v12l-12 5.5q-12 5.5-26.5 11.5T135-403.5l-12 5.5q-2-11-2.5-23t-.5-23q0-146 93-257.5T450-840q-18 99 11 193.5T561-481q71 71 165.5 100T920-370q-26 144-138 237T524-40Zm-284-80h180q25 0 42.5-17.5T480-180q0-25-17-42.5T422-240h-52l-20-48q-14-33-44-52.5T240-360q-50 0-85 34.5T120-240q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T40-240q0-83 58.5-141.5T240-440q60 0 109.5 32.5T423-320q57 2 97 42.5t40 97.5q0 58-41 99t-99 41H240Z"
+              />
+            </svg>
+            <!-- <i
+              class="ri-contrast-2-fill flex items-center h-10 mr-2 text-lg"
+            ></i> -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+              fill="black"
+              class="text-base mr-2 hidden dark:block"
+            >
+              <path
+                d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
+              />
+            </svg>
+
+            <span class="items-center text-base dark:flex hidden"
+              >Open mode</span
+            >
+
+            <span class="flex items-center text-base mt-1 dark:hidden"
+              >Dark mode</span
+            >
+          </button>
+        </div>
+      </aside>
+      <section class="w-full py-6 px-5 lg:px-10 absolute lg:static">
+        <!-- class="max-w-screen-xl mx-auto" -->
+        <div>
+          <h2
+            class="lg:text-3xl text-2xl font-bold mb-3 text-prototurk dark:text-white"
+          >
+            Kendine değer kat!
+          </h2>
+          <p class="leading-relaxed">
+            İyi bir kariyer için, doğru bir başlangıç gerekir. Prototürk'de bir
+            çok dil ve teknolojiye ait derslerle doğru bir başlangıç yapmaya
+            hazırsın!
+          </p>
+        </div>
+
+        <div
+          class="flex lg:grid grid-cols-10 mt-5 gap-3 lg:gap-10 overflow-x-auto"
+        >
+          <div class="col-span-5 lg:col-span-2">
+            <a href="#" class="nav_link group">
+              <span
+                class="w-24 h-24 rounded-full border border-red-700 grid place-items-center relative mb-4"
+              >
+                <span
+                  class="w-[90px] h-[90px] rounded-full absolute -top-2 left-3 bg-red-700/10 -z-10"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="40px"
+                  height="40px"
+                  class="fill-current group-hover:opacity-80 text-red-700"
+                >
+                  <path
+                    d="M12 18.1778L7.38083 16.9222L7.0517 13.3778H9.32156L9.48045 15.2222L12 15.8889L14.5195 15.2222L14.7806 12.3556H6.96091L6.32535 5.67778H17.6747L17.4477 7.88889H8.82219L9.02648 10.1444H17.2434L16.6192 16.9222L12 18.1778ZM3 2H21L19.377 20L12 22L4.62295 20L3 2ZM5.18844 4L6.48986 18.4339L12 19.9278L17.5101 18.4339L18.8116 4H5.18844Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="h-9 rounded group-hover:opacity-80 bg-red-700 inline-flex justify-between items-center text-white px-5"
+                >HTML</span
+              >
+            </a>
+          </div>
+          <div class="col-span-5 lg:col-span-2">
+            <a href="#" class="nav_link group">
+              <span
+                class="w-24 h-24 rounded-full border border-green-700 grid place-items-center relative mb-4"
+              >
+                <span
+                  class="w-[90px] h-[90px] rounded-full absolute -top-2 left-3 bg-green-700/10 -z-10"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="40px"
+                  height="40px"
+                  class="fill-current group-hover:opacity-80 text-green-700"
+                >
+                  <path
+                    d="M2.8 14H4.83961L4.2947 16.7245L10.0393 18.8787L17.2665 16.4697L18.3604 11H3.4L3.8 9H18.7604L19.5604 5H4.6L5 3H22L19 18L10 21L2 18L2.8 14Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="h-9 rounded group-hover:opacity-80 bg-green-700 inline-flex justify-between items-center text-white px-5"
+                >CSS</span
+              >
+            </a>
+          </div>
+          <div class="col-span-5 lg:col-span-2">
+            <a href="#" class="nav_link group">
+              <span
+                class="w-24 h-24 rounded-full border border-blue-700 grid place-items-center relative mb-4"
+              >
+                <span
+                  class="w-[90px] h-[90px] rounded-full absolute -top-2 left-3 bg-blue-700/10 -z-10"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="40px"
+                  height="40px"
+                  class="fill-current group-hover:opacity-80 text-blue-700"
+                >
+                  <path
+                    d="M13.3344 16.055 12.4764 17.243C13.2904 17.969 14.3024 18.332 15.5124 18.332 16.4364 18.31 17.1404 18.0717 17.6244 17.617 18.1157 17.155 18.3614 16.605 18.3614 15.967 18.3614 15.3437 18.1891 14.8303 17.8444 14.427 17.4997 14.0237 16.9204 13.701 16.1064 13.459 15.4317 13.2537 14.9551 13.0667 14.6764 12.898 14.3977 12.722 14.2584 12.5093 14.2584 12.26 14.2584 12.0327 14.3721 11.8493 14.5994 11.71 14.8267 11.5707 15.1311 11.501 15.5124 11.501 15.7911 11.501 16.1064 11.556 16.4584 11.666 16.8104 11.7613 17.1221 11.9153 17.3934 12.128L18.1634 10.929C17.4887 10.3863 16.5941 10.115 15.4794 10.115 14.6801 10.115 14.0237 10.3203 13.5104 10.731 12.9824 11.1417 12.7184 11.6513 12.7184 12.26 12.7257 12.9053 12.9384 13.4077 13.3564 13.767 13.7817 14.1263 14.3867 14.4197 15.1714 14.647 15.8241 14.8523 16.2677 15.0577 16.5024 15.263 16.7297 15.4683 16.8434 15.7177 16.8434 16.011 16.8434 16.297 16.7297 16.517 16.5024 16.671 16.2677 16.8323 15.9304 16.913 15.4904 16.913 14.7717 16.9203 14.0531 16.6343 13.3344 16.055ZM7.80405 16.693C7.58405 16.561 7.37872 16.3667 7.18805 16.11L6.15405 16.957C6.46205 17.4777 6.84339 17.8407 7.29805 18.046 7.72339 18.2367 8.21105 18.332 8.76105 18.332 9.06172 18.332 9.37339 18.2843 9.69605 18.189 10.0187 18.0937 10.3157 17.9323 10.5871 17.705 11.0637 17.3237 11.3131 16.7003 11.3351 15.835V10.247H9.85005V15.549C9.85005 16.055 9.73639 16.4107 9.50905 16.616 9.28172 16.814 8.99572 16.913 8.65105 16.913 8.32105 16.913 8.03872 16.8397 7.80405 16.693ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="h-9 rounded group-hover:opacity-80 bg-blue-700 inline-flex justify-between items-center text-white px-5"
+                >Javascript</span
+              >
+            </a>
+          </div>
+          <div class="col-span-5 lg:col-span-2">
+            <a href="#" class="nav_link group">
+              <span
+                class="w-24 h-24 rounded-full border border-yellow-700 grid place-items-center relative mb-4"
+              >
+                <span
+                  class="w-[90px] h-[90px] rounded-full absolute -top-2 left-3 bg-yellow-700/10 -z-10"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="40px"
+                  height="40px"
+                  class="fill-current group-hover:opacity-80 text-yellow-700"
+                >
+                  <path
+                    d="M5.88401 18.6531C5.58404 18.4523 5.32587 18.1972 5.0239 17.8366C4.91473 17.7062 4.47283 17.1521 4.55811 17.258C4.09533 16.6831 3.80296 16.4168 3.50156 16.3087C2.9817 16.1223 2.7114 15.5497 2.89784 15.0298C3.08428 14.51 3.65685 14.2397 4.17672 14.4261C4.92936 14.696 5.43847 15.1609 6.12425 16.0141C6.03025 15.8972 6.46364 16.4408 6.55731 16.5526C6.74784 16.7802 6.88732 16.918 6.99629 16.9909C7.20118 17.128 7.58451 17.1871 8.14709 17.1308C8.17065 16.7487 8.24136 16.378 8.34919 16.0355C5.38097 15.3101 3.70116 13.3949 3.70116 9.63947C3.70116 8.4006 4.0704 7.28368 4.75917 6.34756C4.5415 5.45368 4.57433 4.37259 5.06092 3.15611C5.1725 2.87715 5.40361 2.66314 5.69031 2.57328C5.77242 2.54949 5.81791 2.5389 5.89878 2.52648C6.70167 2.40319 7.83573 2.69681 9.31449 3.62311C10.181 3.41855 11.0885 3.31476 12.0012 3.31476C12.9129 3.31476 13.8196 3.41835 14.6854 3.62253C16.1619 2.68976 17.2986 2.39625 18.1072 2.52627C18.1919 2.53988 18.2645 2.55758 18.3249 2.57741C18.6059 2.66967 18.8316 2.88155 18.9414 3.15611C19.4279 4.37232 19.4608 5.45319 19.2433 6.34695C19.9342 7.28313 20.3012 8.39184 20.3012 9.63947C20.3012 13.3966 18.627 15.3046 15.6588 16.0318C15.7837 16.4467 15.8496 16.9103 15.8496 17.4118C15.8496 18.0763 15.8471 18.7108 15.8424 19.4223C15.8412 19.6124 15.8397 19.8156 15.8375 20.1279C16.2129 20.2107 16.5229 20.5074 16.6031 20.9086C16.7114 21.4502 16.3602 21.977 15.8186 22.0853C14.6794 22.3132 13.8353 21.5535 13.8353 20.5608C13.8353 20.4705 13.836 20.3414 13.8375 20.1142C13.8398 19.8012 13.8412 19.5987 13.8425 19.4092C13.8471 18.7017 13.8496 18.0714 13.8496 17.4118C13.8496 16.7145 13.6664 16.26 13.4237 16.0508C12.7627 15.481 13.0977 14.3971 13.965 14.2996C16.9314 13.9663 18.3012 12.8174 18.3012 9.63947C18.3012 8.68484 17.9893 7.89547 17.3881 7.23534C17.1301 6.95209 17.0567 6.54634 17.199 6.19062C17.3647 5.77639 17.4354 5.2336 17.2941 4.57678L17.2847 4.57944C16.7928 4.71861 16.1744 5.01956 15.4261 5.52826C15.182 5.69413 14.8772 5.74377 14.5932 5.66388C13.7729 5.43319 12.8913 5.31476 12.0012 5.31476C11.111 5.31476 10.2294 5.43319 9.40916 5.66388C9.12662 5.74335 8.82344 5.69468 8.57997 5.53077C7.8274 5.02414 7.2056 4.72355 6.71079 4.58352C6.56735 5.23672 6.63814 5.77758 6.80336 6.19062C6.94565 6.54634 6.87219 6.95209 6.61423 7.23534C6.01715 7.89096 5.70116 8.69352 5.70116 9.63947C5.70116 12.8114 7.07225 13.9681 10.023 14.2996C10.8883 14.3969 11.2246 15.4767 10.5675 16.048C10.3751 16.2153 10.1384 16.7799 10.1384 17.4118V20.5608C10.1384 21.5472 9.30356 22.2866 8.17878 22.0898C7.63476 21.9946 7.27093 21.4764 7.36613 20.9324C7.43827 20.5201 7.75331 20.2114 8.13841 20.1274V19.1379C7.22829 19.1991 6.47656 19.0496 5.88401 18.6531Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="h-9 rounded group-hover:opacity-80 bg-yellow-700 inline-flex justify-between items-center text-white px-5"
+                >Git</span
+              >
+            </a>
+          </div>
+          <div class="col-span-5 lg:col-span-2">
+            <a href="#" class="nav_link group">
+              <span
+                class="w-24 h-24 rounded-full border border-lime-700 grid place-items-center relative mb-4"
+              >
+                <span
+                  class="w-[90px] h-[90px] rounded-full absolute -top-2 left-3 bg-lime-700/10 -z-10"
+                ></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="40px"
+                  height="40px"
+                  class="fill-current group-hover:opacity-80 text-lime-700"
+                >
+                  <path
+                    d="M12.001 13.5001C11.1725 13.5001 10.501 12.8285 10.501 12.0001C10.501 11.1716 11.1725 10.5001 12.001 10.5001C12.8294 10.5001 13.501 11.1716 13.501 12.0001C13.501 12.8285 12.8294 13.5001 12.001 13.5001ZM11.4733 16.4945C11.6479 16.705 11.8239 16.908 12.001 17.103C12.178 16.908 12.3541 16.705 12.5286 16.4945C12.3538 16.4982 12.1779 16.5001 12.001 16.5001C11.824 16.5001 11.6481 16.4982 11.4733 16.4945ZM9.47837 16.3694C8.6762 16.2846 7.91035 16.1603 7.19268 16.0016C7.11832 16.3512 7.06134 16.6904 7.02243 17.0166C6.83358 18.6 7.09805 19.5617 7.50098 19.7943C7.9039 20.0269 8.86893 19.7751 10.1458 18.8199C10.4088 18.6231 10.6741 18.4042 10.9397 18.1649C10.4434 17.6228 9.95287 17.0217 9.47837 16.3694ZM16.8093 16.0016C16.0916 16.1603 15.3257 16.2846 14.5236 16.3694C14.0491 17.0217 13.5585 17.6228 13.0622 18.1649C13.3279 18.4042 13.5931 18.6231 13.8562 18.8199C15.133 19.7751 16.0981 20.0269 16.501 19.7943C16.9039 19.5617 17.1684 18.6 16.9795 17.0166C16.9406 16.6904 16.8836 16.3512 16.8093 16.0016ZM18.2598 15.6136C18.8364 18.2526 18.5328 20.3533 17.251 21.0933C15.9691 21.8334 13.9981 21.046 12.001 19.2271C10.0038 21.046 8.03282 21.8334 6.75098 21.0933C5.46913 20.3533 5.16555 18.2526 5.74217 15.6136C3.16842 14.7935 1.50098 13.4802 1.50098 12.0001C1.50098 10.5199 3.16842 9.20668 5.74217 8.38654C5.16555 5.74754 5.46913 3.64687 6.75098 2.9068C8.03282 2.16673 10.0038 2.95415 12.001 4.77302C13.9981 2.95415 15.9691 2.16673 17.251 2.9068C18.5328 3.64687 18.8364 5.74754 18.2598 8.38654C20.8335 9.20668 22.501 10.5199 22.501 12.0001C22.501 13.4802 20.8335 14.7935 18.2598 15.6136ZM10.9397 5.83521C10.6741 5.59597 10.4088 5.37703 10.1458 5.18024C8.86893 4.22499 7.9039 3.97321 7.50098 4.20584C7.09805 4.43847 6.83358 5.4001 7.02243 6.9835C7.06134 7.30969 7.11832 7.6489 7.19268 7.99857C7.91035 7.83985 8.6762 7.71556 9.47837 7.63078C9.95287 6.97848 10.4434 6.37737 10.9397 5.83521ZM14.5236 7.63078C15.3257 7.71556 16.0916 7.83985 16.8093 7.99857C16.8836 7.6489 16.9406 7.30969 16.9795 6.9835C17.1684 5.4001 16.9039 4.43847 16.501 4.20584C16.0981 3.97321 15.133 4.22499 13.8562 5.18024C13.5931 5.37703 13.3279 5.59597 13.0622 5.83521C13.5585 6.37737 14.0491 6.97848 14.5236 7.63078ZM12.5286 7.50565C12.3541 7.29515 12.178 7.09211 12.001 6.89711C11.8239 7.09211 11.6479 7.29515 11.4733 7.50565C11.6481 7.50194 11.824 7.50007 12.001 7.50007C12.1779 7.50007 12.3538 7.50194 12.5286 7.50565ZM8.37252 14.7042C8.28191 14.5547 8.19233 14.4033 8.10386 14.2501C8.01539 14.0968 7.92906 13.9435 7.84488 13.7903C7.74985 14.0467 7.66205 14.3007 7.58169 14.5515C7.83908 14.6074 8.10295 14.6583 8.37252 14.7042ZM10.3049 14.9377C10.8579 14.9788 11.4251 15.0001 12.001 15.0001C12.5769 15.0001 13.144 14.9788 13.697 14.9377C14.0091 14.4793 14.3111 13.9988 14.5991 13.5001C14.887 13.0013 15.1522 12.4995 15.393 12.0001C15.1522 11.5006 14.887 10.9988 14.5991 10.5001C14.3111 10.0013 14.0091 9.52081 13.697 9.06246C13.144 9.02133 12.5769 9.00007 12.001 9.00007C11.4251 9.00007 10.8579 9.02133 10.3049 9.06246C9.99283 9.52081 9.69086 10.0013 9.4029 10.5001C9.11494 10.9988 8.8498 11.5006 8.60892 12.0001C8.8498 12.4995 9.11494 13.0013 9.4029 13.5001C9.69086 13.9988 9.99283 14.4793 10.3049 14.9377ZM16.1571 10.2098C16.2521 9.9534 16.3399 9.6994 16.4203 9.44859C16.1629 9.39278 15.899 9.34182 15.6294 9.29591C15.72 9.44543 15.8096 9.59683 15.8981 9.75007C15.9866 9.9033 16.0729 10.0566 16.1571 10.2098ZM6.13143 9.83671C5.79142 9.94714 5.46917 10.0674 5.16723 10.1968C3.70154 10.825 3.00098 11.5348 3.00098 12.0001C3.00098 12.4653 3.70154 13.1752 5.16723 13.8033C5.46917 13.9327 5.79142 14.053 6.13143 14.1634C6.35281 13.4625 6.6281 12.7371 6.95576 12.0001C6.6281 11.263 6.35281 10.5376 6.13143 9.83671ZM7.58169 9.44859C7.66205 9.6994 7.74985 9.9534 7.84488 10.2098C7.92906 10.0566 8.01539 9.9033 8.10386 9.75007C8.19233 9.59683 8.28191 9.44543 8.37252 9.29591C8.10295 9.34182 7.83908 9.39278 7.58169 9.44859ZM17.8705 14.1634C18.2105 14.053 18.5328 13.9327 18.8347 13.8033C20.3004 13.1752 21.001 12.4653 21.001 12.0001C21.001 11.5348 20.3004 10.825 18.8347 10.1968C18.5328 10.0674 18.2105 9.94714 17.8705 9.83671C17.6491 10.5376 17.3739 11.263 17.0462 12.0001C17.3739 12.7371 17.6491 13.4625 17.8705 14.1634ZM16.4203 14.5515C16.3399 14.3007 16.2521 14.0467 16.1571 13.7903C16.0729 13.9435 15.9866 14.0968 15.8981 14.2501C15.8096 14.4033 15.72 14.5547 15.6294 14.7042C15.899 14.6583 16.1629 14.6074 16.4203 14.5515Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="h-9 rounded group-hover:opacity-80 bg-lime-700 inline-flex justify-between items-center text-white px-5"
+                >React</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="text-white bg-twitter flex lg:flex-row flex-col items-center rounded-lg py-4 px-5 mt-8"
+        >
+          <div class="ml-5 mr-7">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="50px"
+              height="50px"
+              class="fill-white"
+            >
+              <path
+                d="M15.3499 5.5498C13.7681 5.5498 12.4786 6.81785 12.4504 8.39633L12.4223 9.97138C12.4164 10.3027 12.143 10.5665 11.8117 10.5606C11.7881 10.5602 11.7646 10.5584 11.7413 10.5552L10.1805 10.3423C8.12699 10.0623 6.15883 9.11711 4.27072 7.54387C3.67275 10.8535 4.84 13.147 7.65342 14.9157L9.40041 16.014C9.68095 16.1904 9.7654 16.5608 9.58903 16.8413C9.54861 16.9056 9.49636 16.9616 9.43504 17.0064L7.84338 18.1693C8.78973 18.2288 9.68938 18.1873 10.435 18.0385C15.1526 17.097 18.2897 13.5468 18.2897 7.69084C18.2897 7.21275 17.2774 5.5498 15.3499 5.5498ZM10.4507 8.36066C10.4983 5.69559 12.6735 3.5498 15.3499 3.5498C16.7132 3.5498 17.9465 4.10658 18.8348 5.00515C19.5462 4.9998 20.1514 5.17966 21.5035 4.35943C21.1693 5.9998 21.0034 6.71177 20.2897 7.69084C20.2897 15.3324 15.5926 19.0487 10.8264 19.9998C7.5587 20.6519 2.80646 19.5812 1.44531 18.1584C2.13874 18.1051 4.95928 17.8018 6.58895 16.6089C5.20994 15.6984 -0.278631 12.4679 3.32772 3.78617C5.02119 5.76283 6.73797 7.10831 8.47807 7.82262C9.63548 8.29774 9.91978 8.28825 10.4507 8.36066Z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-medium mb-1">
+              Twitter'da
+              <strong class="font-semibold">@prototurkcom</strong> hesabını
+              takip etmeyi unutma!
+            </h4>
+            <h6 class="opacity-60">
+              Hazırladığımız son videolardan anında haberdar olmak için twitter
+              hesabımızı takip etmeyi unutma!
+            </h6>
+            <a
+              href="#"
+              class="bg-gradient-to-r from-sky-700 to-sky-950 text-white px-5 lg:w-auto w-full h-11 inline-flex rounded justify-center items-center mt-4 font-medium hover:from-blue-700 hover:to-blue-950 transition-colors"
+              >Takip et</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal z-50" id="modal_id">
+      <div class="modal_content">
+        <div class="flex flex-col">
+          <div class="inline-flex justify-end items-center mb-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="28px"
+              height="28px"
+              onclick="modalToggle('modal_id')"
+              class="fill-current text-prototurk dark:text-white"
+            >
+              <path
+                d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img
+              class="mx-auto h-10 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              alt="Your Company"
+            />
+            <h2
+              class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white"
+            >
+              Sign in to your account
+            </h2>
+          </div>
+
+          <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6">
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+                  >Email address</label
+                >
+                <div class="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between">
+                  <label
+                    for="password"
+                    class="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
+                    >Password</label
+                  >
+                  <div class="text-sm">
+                    <a
+                      href="#"
+                      class="font-semibold text-indigo-600 hover:text-indigo-500"
+                      >Forgot password?</a
+                    >
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
+
+            <p class="mt-10 text-center text-sm text-gray-500 dark:text-white">
+              Not a member?
+              <a
+                href="#"
+                class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                >Start a 14 day free trial</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      if (localStorage.getItem("darkMode")) {
+        document.documentElement.classList.add("dark");
+      }
+      function darkMode() {
+        document.documentElement.classList.toggle("dark");
+        if (document.documentElement.classList.contains("dark")) {
+          localStorage.setItem("darkMode", true);
+        } else {
+          localStorage.removeItem("darkMode");
+        }
+      }
+      function sideBar() {
+        document.querySelector(".sidebar").classList.toggle("active");
+      }
+      const modalToggle = (id) => {
+        document.getElementById(id).classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>
